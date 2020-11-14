@@ -3,14 +3,24 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { DetailsComponent } from './details/details.component';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
-   {path:'carousel',component:CarouselComponent},
-   {path:'',component:HomeComponent}
+  {path:'login',component:LoginComponent},
+  {path:'list',component:ListComponent},
+
+  //PARA QUE EXISTA HIJOS DENTRO DE UN PATH
+  {
+    path: '',
+    component: MenuComponent,
+    children: [{ path: 'detail/:id', component: DetailsComponent }],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

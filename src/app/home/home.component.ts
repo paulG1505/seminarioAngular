@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
 
   @ViewChild(MenuComponent)menu; //observa al hijo
   public name:NameModel
-
+  public valueEmitter:NameModel={name:null,age:null}
 
     constructor(private cdRef:ChangeDetectorRef) {
       this.name={name:'',age:0}
@@ -41,6 +41,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
         alt:"Imagen3",
       },
     ]
+  }
+
+  parentEventHandle(value){
+    this.valueEmitter=value
+
   }
 
 }

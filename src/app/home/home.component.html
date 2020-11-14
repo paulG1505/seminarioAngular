@@ -1,4 +1,9 @@
-<app-menu></app-menu>
-<app-carousel [images]="images"></app-carousel>
+
+<app-carousel [images]="images" (buttonClicked)="parentEventHandle($event)"></app-carousel>
 <!-- <p>{{name.name}}</p> -->
-{{name.name}}
+<div class="container">
+  {{ name.name }}
+  <h1>
+    {{valueEmitter.name}} {{valueEmitter.age}}
+  </h1>
+</div>
