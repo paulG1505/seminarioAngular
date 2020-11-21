@@ -11,6 +11,12 @@ import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import {AngularFireModule} from '@angular/fire'
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { UserFirebaseService } from './services/user-firebase.service';
 
 @NgModule({
   declarations: [
@@ -26,14 +32,19 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
-
+    FormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
     // imports: [SweetAlert2Module],
 
     //=> In submodules only, overriding options from your root module:
     // imports: [SweetAlert2Module.forChild({ /* options */ })]
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserFirebaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

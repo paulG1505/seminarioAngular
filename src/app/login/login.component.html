@@ -39,7 +39,7 @@
               type="text"
               name="email"
               placeholder="Enter a valid email address"
-              [(ngModel)]="user.name"
+              [(ngModel)]="user.email"
             />
           </div>
           <div class="row px-3">
@@ -71,7 +71,6 @@
             <button
               type="submit"
               class="btn btn-blue text-center"
-              routerLink="/list"
               (click)="onSubmit()"
             >
               Login
